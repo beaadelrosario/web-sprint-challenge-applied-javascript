@@ -22,3 +22,18 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+const carousel = document.createElement('div')
+carousel.classList.add('carousel')
+
+const leftButton = document.createElement('div')
+leftButton.classList.add('left-button')
+leftButton.textContent = '<'
+
+const image = document.createElement('img')
+image.classList.add('img')
+
+const rightButton = document.createElement('div')
+rightButton.classList.add('div')
+rightButton.textContent = '>'
+

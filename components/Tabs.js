@@ -39,15 +39,14 @@ console.log(title)
 console.log('this worked')
 
 const timesTopicURL = 'https://lambda-times-backend.herokuapp.com/topics'
-
 axios.get(timesTopicURL)
 .then( response => {
     response.data.topics.forEach( topicGetter => {
     topics.append(tabMaker(topicGetter))
     })
 })
-.catch(function(error){
-        console.log(error)
+.catch(errorTabs => {
+        console.log(errorTabs)
 })
 
 

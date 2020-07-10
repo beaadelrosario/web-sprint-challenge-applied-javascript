@@ -14,16 +14,16 @@
 const headerContainer = document.querySelector('.header-container')
 
 function Header() {
-    const header = document.createElement('header')
+    let header = document.createElement('header')
     header.classList.add('header')
 
-    const date = document.createElement('span')
+    let date = document.createElement('span')
     date.classList.add('date')
 
     const timesHeader = document.createElement('h1')
     timesHeader.textContent = 'Lambda Times'
 
-    const weather = document.createElement('span')
+    let weather = document.createElement('span')
     weather.classList.add('weather')
     weather.textContent = '98°'
 

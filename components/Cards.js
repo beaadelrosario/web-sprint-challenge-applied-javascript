@@ -64,32 +64,31 @@ let articlesURL = 'https://lambda-times-backend.herokuapp.com/articles'
 axios.get(articlesURL)
 .then(response => {
     const bootstrap = response.data.articles.bootstrap
-    const javascript = response.data.articles.javascript
-    const jquery = response.data.articles.jquery
-    const node = response.data.articles.node
-    const technology = response.data.articles.technology
-
     bootstrap.forEach((item) => {
         const articleBuild = cardMaker(item)
         console.log(articleBuild)
         articleBuild.classList.add('bootstrap')
         cardsContainer.appendChild(articleBuild)
     })
+    const javascript = response.data.articles.javascript
     javascript.forEach((item) => {
         const articleBuild = cardMaker(item)
         articleBuild.classList.add('javascript')
         cardsContainer.appendChild(articleBuild)
     })
+    const jquery = response.data.articles.jquery
     jquery.forEach((item) => {
         const articleBuild = cardMaker(item)
         articleBuild.classList.add('jquery')
         cardsContainer.appendChild(articleBuild)
     })
+    const node = response.data.articles.node
     node.forEach((item) => {
         const articleBuild = cardMaker(item)
         articleBuild.classList.add('node')
         cardsContainer.appendChild(articleBuild)
     })
+    const technology = response.data.articles.technology
     technology.forEach((item) => {
         const articleBuild = cardMaker(item)
         articleBuild.classList.add('technology')

@@ -21,25 +21,55 @@
 // }
 
 //tab making function
-function tabMaker(tab){
+function tabMaker(object){ //param needed? tab?
     let tabber = document.createElement('div')
-    tabber.classList.add('tab')
-    tabber.textContent = tab
+    tabber.classList.add('tab') //or className?
+    tabber.textContent = object//or tab or tab.topics
 
-    return tab
+    return tabber
 }
 console.log(tabMaker)
 
-//iteration for each topic
-let topics = document.querySelector('.topics')
+// //iteration for each topic
+let topics = document.querySelector('.topics') //topics is the HTML section variable
 console.log(topics)
+console.log('this worked')
+let title = document.querySelector('.title')
+console.log(title)
+console.log('this worked')
 
-axios.get('https://lambda-times-backend.herokuapp.com/topics')
-    .then(res => { //res is my function
-        res.data.topics.forEach( makeOwnTopicTab => { //always add data
-            topics.appendChild(tabMaker(makeOwnTopicTab))
-        })
+const timesTopicURL = 'https://lambda-times-backend.herokuapp.com/topics'
+
+axios.get(timesTopicURL)
+.then( response => {
+    response.data.topics.forEach( topicGetter => {
+    topics.append(tabMaker(topicGetter))
     })
-    .catch(error => { //error function logs error in console
+})
+.catch(function(error){
         console.log(error)
-    })
+})
+
+
+// let cards = document.querySelector('.cards') //step4?
+// cards.appendChild(socialCard(myStuff))
+
+// let followersCards = document.querySelector('.cards')
+// followersArray.forEach((object) => {
+//   console.log(object)
+//   const otherUsersURL = `https://api.github.com/users/${object}`
+//   axios.get(otherUsersURL)
+//   .then(function(value){
+//     console.log(value)
+//     followersCards.appendChild(socialCard(value))
+//   })
+//   .catch(function(error){
+//     console.log(error)
+//   })
+// })
+
+// let dataSet = myStuff.data
+// dataSet.forEach((object) => {
+//     console.log(object)
+//       followersCards.appendChild(socialCard(object))
+//     })

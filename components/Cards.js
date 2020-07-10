@@ -26,6 +26,9 @@ let cardsContainer = document.querySelector('.cards-container')
 function cardMaker(object){
     let card = document.createElement('div')
     card.classList.add('card')
+    card.addEventListener('click',() => {
+        console.log(object.headline)
+    })
 
     let headLine = document.createElement('div')
     headLine.classList.add('headline')
@@ -57,15 +60,49 @@ function cardMaker(object){
 }
 
 let articlesURL = 'https://lambda-times-backend.herokuapp.com/articles'
+
 axios.get(articlesURL)
-.then()
-.catch()
+.then(response => {
+    const bootstrap = response.data.articles.bootstrap
+    const javascript = response.data.articles.javascript
+    const jquery = response.data.articles.jquery
+    const node = response.data.articles.node
+    const technology = response.data.articles.technology
+
+    bootstrap.forEach((item) => {
+        const articleBuild = cardMaker(item)
+        console.log(articleBuild)
+        articleBuild.classList.add('bootstrap')
+        cardsContainer.appendChild(articleBuild)
+    })
+    javascript.forEach((item) => {
+        const articleBuild = cardMaker(item)
+        articleBuild.classList.add('javascript')
+        cardsContainer.appendChild(articleBuild)
+    })
+    jquery.forEach((item) => {
+        const articleBuild = cardMaker(item)
+        articleBuild.classList.add('jquery')
+        cardsContainer.appendChild(articleBuild)
+    })
+    node.forEach((item) => {
+        const articleBuild = cardMaker(item)
+        articleBuild.classList.add('node')
+        cardsContainer.appendChild(articleBuild)
+    })
+    technology.forEach((item) => {
+        const articleBuild = cardMaker(item)
+        articleBuild.classList.add('technology')
+        cardsContainer.appendChild(articleBuild)
+    })
+})
+.catch(errorCards => {
+    console.log(errorCards)
+})
 
 
 
 // console.log(cardMaker(articlesURL))
-
-
 
 
 

@@ -64,6 +64,7 @@ let articlesURL = 'https://lambda-times-backend.herokuapp.com/articles'
 axios.get(articlesURL)
 .then(response => {
     const bootstrap = response.data.articles.bootstrap
+    console.log(bootstrap)
     bootstrap.forEach((item) => {
         const articleBuild = cardMaker(item)
         console.log(articleBuild)
